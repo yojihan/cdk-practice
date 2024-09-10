@@ -13,3 +13,4 @@ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.
 
 ## Architecture
 
+![](./etc/architecture.jpg)
