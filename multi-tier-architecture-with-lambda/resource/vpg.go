@@ -10,13 +10,13 @@ import (
 )
 
 type vpcSpec struct {
-	Name string `field:"required"`
-	CIDR string `field:"required"`
+	Name enum.ResourceName `field:"required"`
+	CIDR string            `field:"required"`
 }
 
 var vpcSpecs = map[string]vpcSpec{
 	enum.VPC_ID.String(): {
-		Name: enum.VPC_NANE.String(),
+		Name: enum.VPC_NANE,
 		CIDR: "10.0.0.0/24",
 	},
 }
@@ -28,7 +28,7 @@ func NewVPC(scope constructs.Construct) map[string]*awsec2.CfnVPC {
 		vpc := awsec2.NewCfnVPC(scope, jsii.String(id), &awsec2.CfnVPCProps{
 			CidrBlock: jsii.String(spec.CIDR),
 			Tags: &[]*awscdk.CfnTag{
-				{Key: jsii.String("Name"), Value: jsii.String(spec.Name)},
+				{Key: jsii.String("Name"), Value: jsii.String(spec.Name.String())},
 			},
 		})
 

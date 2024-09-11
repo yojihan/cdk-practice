@@ -19,7 +19,13 @@ func main() {
 	})
 
 	// VPC
-	resource.NewVPC(stack)
+	vpcMap := resource.NewVPC(stack)
+
+	// Subnets
+	resource.NewSubnet(stack, &resource.SubnetProps{VpcMap: vpcMap})
+
+	// AWS Lambda
+	resource.NewLambda(stack)
 
 	app.Synth(nil)
 }
