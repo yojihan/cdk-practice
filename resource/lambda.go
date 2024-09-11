@@ -1,7 +1,7 @@
 package resource
 
 import (
-	"multi-tier-architecture-with-lambda/enum"
+	"github.com/yojihan/cdk-practice/enum"
 	"os"
 	"path"
 
@@ -44,6 +44,7 @@ func NewLambda(scope constructs.Construct) map[string]*awslambda.Function {
 
 	for id, spec := range lambdaSpecs {
 		lambda := awslambda.NewFunction(scope, jsii.String(id), &awslambda.FunctionProps{
+			FunctionName: jsii.String(spec.name.String()),
 			MaxEventAge:   awscdk.Duration_Minutes(jsii.Number(spec.maxAge)),
 			RetryAttempts: jsii.Number(spec.retry),
 			Runtime:       spec.runtime,

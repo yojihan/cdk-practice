@@ -1,5 +1,16 @@
-# AWS CDK Practice
+# Multi-tier architecture with Lambda
 
-## Table of contents
+## Reference
 
-1. [Multi-tier architecture with Lambda](./multi-tier-architecture-with-lambda/)
+https://docs.aws.amazon.com/whitepapers/latest/serverless-multi-tier-architectures-api-gateway-lambda/web-application.html
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.html
+
+## Environment
+
+- go v1.23.0
+- cdk v2.156.0
+
+## Architecture
+
+![](./etc/architecture.jpg)

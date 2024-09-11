@@ -1,4 +1,4 @@
-module multi-tier-architecture-with-lambda
+module github.com/yojihan/cdk-practice
 
 go 1.18
 

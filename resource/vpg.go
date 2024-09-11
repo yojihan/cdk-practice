@@ -1,7 +1,7 @@
 package resource
 
 import (
-	"multi-tier-architecture-with-lambda/enum"
+	"github.com/yojihan/cdk-practice/enum"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
