@@ -13,6 +13,9 @@ const (
 	SUBNET_2_ID
 	SUBNET_3_ID
 
+	// DynamoDB
+	DYNAMODB_ID
+
 	// lambda
 	LAMBDA_ORDER_ID
 	LAMBDA_PUSH_QUEUE_ID
@@ -34,6 +37,8 @@ func (id ResourceId) String() string {
 		return "Subnet2"
 	case SUBNET_3_ID:
 		return "Subnet3"
+	case DYNAMODB_ID:
+		return "OrderDynamoDB"
 	case LAMBDA_ORDER_ID:
 		return "LambdaOrder"
 	case LAMBDA_PUSH_QUEUE_ID:

@@ -11,6 +11,9 @@ const (
 	SUBNET_2_NAME
 	SUBNET_3_NAME
 
+	// dynamoDB
+	DYNAMODB_NAME
+
 	// lambda
 	LAMBDA_ORDER_NAME
 	LAMBDA_PUSH_QUEUE_NAME
@@ -27,6 +30,8 @@ func (id ResourceName) String() string {
 		return "multi-tier-subnet-2"
 	case SUBNET_3_NAME:
 		return "multi-tier-subnet-3"
+	case DYNAMODB_NAME:
+		return "order-db"
 	case LAMBDA_ORDER_NAME:
 		return "order-lambda"
 	case LAMBDA_PUSH_QUEUE_NAME:

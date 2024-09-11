@@ -1,9 +1,10 @@
 package main
 
 import (
+	"os"
+
 	"github.com/yojihan/cdk-practice/enum"
 	"github.com/yojihan/cdk-practice/resource"
-	"os"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/jsii-runtime-go"
@@ -23,6 +24,9 @@ func main() {
 
 	// Subnets
 	resource.NewSubnet(stack, &resource.SubnetProps{VpcMap: vpcMap})
+
+	// DynamoDB
+	resource.NewDynamoDB(stack)
 
 	// AWS Lambda
 	resource.NewLambda(stack)
