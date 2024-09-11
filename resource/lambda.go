@@ -1,9 +1,10 @@
 package resource
 
 import (
-	"github.com/yojihan/cdk-practice/enum"
 	"os"
 	"path"
+
+	"github.com/yojihan/cdk-practice/enum"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
@@ -29,7 +30,7 @@ var lambdaSpecs = map[string]lambdaSpec{
 		maxAge:  5,
 		retry:   0,
 		runtime: awslambda.Runtime_NODEJS_18_X(),
-		handler: "order",
+		handler: "index.handler",
 		code:    "order",
 	},
 }
@@ -44,7 +45,7 @@ func NewLambda(scope constructs.Construct) map[string]*awslambda.Function {
 
 	for id, spec := range lambdaSpecs {
 		lambda := awslambda.NewFunction(scope, jsii.String(id), &awslambda.FunctionProps{
-			FunctionName: jsii.String(spec.name.String()),
+			FunctionName:  jsii.String(spec.name.String()),
 			MaxEventAge:   awscdk.Duration_Minutes(jsii.Number(spec.maxAge)),
 			RetryAttempts: jsii.Number(spec.retry),
 			Runtime:       spec.runtime,
