@@ -15,85 +15,103 @@ func NewDynamoDB(scope constructs.Construct) {
 		},
 		AttributeDefinitions: []interface{}{
 			&awsdynamodb.CfnTable_AttributeDefinitionProperty{
-				AttributeName: jsii.String("orderId"),
+				AttributeName: jsii.String("OrderId"),
 				AttributeType: jsii.String("S"),
 			},
 			&awsdynamodb.CfnTable_AttributeDefinitionProperty{
-				AttributeName: jsii.String("userId"),
+				AttributeName: jsii.String("UserId"),
 				AttributeType: jsii.String("S"),
 			},
 			&awsdynamodb.CfnTable_AttributeDefinitionProperty{
-				AttributeName: jsii.String("userName"),
+				AttributeName: jsii.String("UserName"),
 				AttributeType: jsii.String("S"),
 			},
 			&awsdynamodb.CfnTable_AttributeDefinitionProperty{
-				AttributeName: jsii.String("productName"),
+				AttributeName: jsii.String("ProductName"),
 				AttributeType: jsii.String("S"),
 			},
 			&awsdynamodb.CfnTable_AttributeDefinitionProperty{
-				AttributeName: jsii.String("qty"),
+				AttributeName: jsii.String("Qty"),
 				AttributeType: jsii.String("N"),
 			},
 		},
 		KeySchema: []interface{}{
 			&awsdynamodb.CfnTable_KeySchemaProperty{
-				AttributeName: jsii.String("orderId"),
+				AttributeName: jsii.String("OrderId"),
 				KeyType:       jsii.String("HASH"),
+			},
+			&awsdynamodb.CfnTable_KeySchemaProperty{
+				AttributeName: jsii.String("UserId"),
+				KeyType:       jsii.String("RANGE"),
 			},
 		},
 		LocalSecondaryIndexes: []interface{}{
 			&awsdynamodb.CfnTable_LocalSecondaryIndexProperty{
-				IndexName: jsii.String("index_orderId_userId"),
+				IndexName: jsii.String("index_OrderId_"),
 				KeySchema: []interface{}{
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("orderId"),
+						AttributeName: jsii.String("OrderId"),
 						KeyType:       jsii.String("HASH"),
 					},
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("userId"),
-						KeyType:       jsii.String("HASH"),
+						AttributeName: jsii.String("UserId"),
+						KeyType:       jsii.String("RANGE"),
 					},
 				},
 				Projection: awsdynamodb.ProjectionType_ALL,
 			},
 			&awsdynamodb.CfnTable_LocalSecondaryIndexProperty{
-				IndexName: jsii.String("index_orderId_userName"),
+				IndexName: jsii.String("index_OrderId_"),
 				KeySchema: []interface{}{
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("orderId"),
+						AttributeName: jsii.String("OrderId"),
 						KeyType:       jsii.String("HASH"),
 					},
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("userName"),
-						KeyType:       jsii.String("HASH"),
+						AttributeName: jsii.String("UserId"),
+						KeyType:       jsii.String("RANGE"),
 					},
 				},
 				Projection: awsdynamodb.ProjectionType_ALL,
 			},
 			&awsdynamodb.CfnTable_LocalSecondaryIndexProperty{
-				IndexName: jsii.String("index_orderId_productName"),
+				IndexName: jsii.String("index_OrderId_UserName"),
 				KeySchema: []interface{}{
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("orderId"),
+						AttributeName: jsii.String("OrderId"),
 						KeyType:       jsii.String("HASH"),
 					},
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("productName"),
-						KeyType:       jsii.String("HASH"),
+						AttributeName: jsii.String("UserName"),
+						KeyType:       jsii.String("RANGE"),
 					},
 				},
 				Projection: awsdynamodb.ProjectionType_ALL,
 			},
 			&awsdynamodb.CfnTable_LocalSecondaryIndexProperty{
-				IndexName: jsii.String("index_orderId_qty"),
+				IndexName: jsii.String("index_OrderId_ProductName"),
 				KeySchema: []interface{}{
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("orderId"),
+						AttributeName: jsii.String("OrderId"),
 						KeyType:       jsii.String("HASH"),
 					},
 					&awsdynamodb.CfnTable_KeySchemaProperty{
-						AttributeName: jsii.String("qty"),
+						AttributeName: jsii.String("ProductName"),
+						KeyType:       jsii.String("RANGE"),
+					},
+				},
+				Projection: awsdynamodb.ProjectionType_ALL,
+			},
+			&awsdynamodb.CfnTable_LocalSecondaryIndexProperty{
+				IndexName: jsii.String("index_OrderId_Qty"),
+				KeySchema: []interface{}{
+					&awsdynamodb.CfnTable_KeySchemaProperty{
+						AttributeName: jsii.String("OrderId"),
 						KeyType:       jsii.String("HASH"),
+					},
+					&awsdynamodb.CfnTable_KeySchemaProperty{
+						AttributeName: jsii.String("Qty"),
+						KeyType:       jsii.String("RANGE"),
 					},
 				},
 				Projection: awsdynamodb.ProjectionType_ALL,
